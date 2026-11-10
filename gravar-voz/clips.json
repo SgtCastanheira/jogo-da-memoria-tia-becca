@@ -1,0 +1,438 @@
+{
+ "groups": [
+  {
+   "id": "frases",
+   "title": "Frases da Tia",
+   "clips": [
+    {
+     "key": "vamos-brincar",
+     "text": "Vamos brincar!"
+    },
+    {
+     "key": "vamos-comecar",
+     "text": "Vamos! Vire uma carta para começar."
+    },
+    {
+     "key": "figurinha-nova",
+     "text": "Figurinha nova!"
+    },
+    {
+     "key": "parabens",
+     "text": "Parabéns! Você achou todos os pares!"
+    },
+    {
+     "key": "quase-tentar-de-novo",
+     "text": "Quase! Vamos tentar de novo?"
+    },
+    {
+     "key": "hora-de-descansar",
+     "text": "Hora de descansar os olhinhos!"
+    }
+   ]
+  },
+  {
+   "id": "elogios",
+   "title": "Elogios (a cada acerto)",
+   "clips": [
+    {
+     "key": "elogio-1",
+     "text": "Muito bem!"
+    },
+    {
+     "key": "elogio-2",
+     "text": "Isso mesmo!"
+    },
+    {
+     "key": "elogio-3",
+     "text": "Que lindo!"
+    },
+    {
+     "key": "elogio-4",
+     "text": "Você achou!"
+    },
+    {
+     "key": "elogio-5",
+     "text": "Uau, parabéns!"
+    }
+   ]
+  },
+  {
+   "id": "espaco-1",
+   "title": "Figuras — Espaço — Parte 1",
+   "clips": [
+    {
+     "key": "espaco-1-planeta-roxo",
+     "text": "Planeta roxo"
+    },
+    {
+     "key": "espaco-1-satelite",
+     "text": "Satélite"
+    },
+    {
+     "key": "espaco-1-terra",
+     "text": "Terra"
+    },
+    {
+     "key": "espaco-1-planeta-azul",
+     "text": "Planeta azul"
+    },
+    {
+     "key": "espaco-1-foguete",
+     "text": "Foguete"
+    },
+    {
+     "key": "espaco-1-planeta-vermelho",
+     "text": "Planeta vermelho"
+    },
+    {
+     "key": "espaco-1-meteoro-amarelo",
+     "text": "Meteoro amarelo"
+    },
+    {
+     "key": "espaco-1-planeta-amarelo",
+     "text": "Planeta amarelo"
+    },
+    {
+     "key": "espaco-1-galaxia",
+     "text": "Galáxia"
+    },
+    {
+     "key": "espaco-1-estrelas-cadentes",
+     "text": "Estrelas cadentes"
+    },
+    {
+     "key": "espaco-1-sol",
+     "text": "Sol"
+    },
+    {
+     "key": "espaco-1-planeta-rosa-com-aneis",
+     "text": "Planeta rosa com anéis"
+    }
+   ]
+  },
+  {
+   "id": "espaco-2",
+   "title": "Figuras — Espaço — Parte 2",
+   "clips": [
+    {
+     "key": "espaco-2-planeta-alaranjado-com-aneis",
+     "text": "Planeta alaranjado com anéis"
+    },
+    {
+     "key": "espaco-2-lua",
+     "text": "Lua"
+    },
+    {
+     "key": "espaco-2-planeta-verde-com-aneis",
+     "text": "Planeta verde com anéis"
+    },
+    {
+     "key": "espaco-2-disco-voador-com-feixe",
+     "text": "Disco voador com feixe de luz"
+    },
+    {
+     "key": "espaco-2-buraco-negro",
+     "text": "Buraco negro"
+    },
+    {
+     "key": "espaco-2-disco-voador-roxo",
+     "text": "Disco voador roxo"
+    },
+    {
+     "key": "espaco-2-chuva-de-meteoros",
+     "text": "Chuva de meteoros"
+    },
+    {
+     "key": "espaco-2-meteoro-verde",
+     "text": "Meteoro verde"
+    },
+    {
+     "key": "espaco-2-estrela",
+     "text": "Estrela"
+    },
+    {
+     "key": "espaco-2-asteroides",
+     "text": "Asteroides"
+    },
+    {
+     "key": "espaco-2-estrela-brilhante",
+     "text": "Estrela brilhante"
+    },
+    {
+     "key": "espaco-2-planeta-listrado",
+     "text": "Planeta listrado"
+    }
+   ]
+  },
+  {
+   "id": "selvagens",
+   "title": "Figuras — Animais Selvagens",
+   "clips": [
+    {
+     "key": "selvagens-coala",
+     "text": "Coala"
+    },
+    {
+     "key": "selvagens-elefante",
+     "text": "Elefante"
+    },
+    {
+     "key": "selvagens-camelo",
+     "text": "Camelo"
+    },
+    {
+     "key": "selvagens-raposa",
+     "text": "Raposa"
+    },
+    {
+     "key": "selvagens-leao",
+     "text": "Leão"
+    },
+    {
+     "key": "selvagens-panda",
+     "text": "Panda"
+    },
+    {
+     "key": "selvagens-tigre",
+     "text": "Tigre"
+    },
+    {
+     "key": "selvagens-girafa",
+     "text": "Girafa"
+    },
+    {
+     "key": "selvagens-capivara",
+     "text": "Capivara"
+    },
+    {
+     "key": "selvagens-zebra",
+     "text": "Zebra"
+    },
+    {
+     "key": "selvagens-porco-espinho",
+     "text": "Porco-espinho"
+    },
+    {
+     "key": "selvagens-urso",
+     "text": "Urso"
+    }
+   ]
+  },
+  {
+   "id": "marinhos",
+   "title": "Figuras — Animais Marinhos",
+   "clips": [
+    {
+     "key": "marinhos-golfinho",
+     "text": "Golfinho"
+    },
+    {
+     "key": "marinhos-foca",
+     "text": "Foca"
+    },
+    {
+     "key": "marinhos-baleia",
+     "text": "Baleia"
+    },
+    {
+     "key": "marinhos-tubarao",
+     "text": "Tubarão"
+    },
+    {
+     "key": "marinhos-polvo",
+     "text": "Polvo"
+    },
+    {
+     "key": "marinhos-tartaruga",
+     "text": "Tartaruga"
+    },
+    {
+     "key": "marinhos-peixe-palhaco",
+     "text": "Peixe-palhaço"
+    },
+    {
+     "key": "marinhos-cavalo-marinho",
+     "text": "Cavalo-marinho"
+    },
+    {
+     "key": "marinhos-estrela-do-mar",
+     "text": "Estrela do mar"
+    },
+    {
+     "key": "marinhos-caranguejo",
+     "text": "Caranguejo"
+    },
+    {
+     "key": "marinhos-agua-viva",
+     "text": "Água-viva"
+    },
+    {
+     "key": "marinhos-arraia",
+     "text": "Arraia"
+    }
+   ]
+  },
+  {
+   "id": "fazenda",
+   "title": "Figuras — Animais da Fazenda",
+   "clips": [
+    {
+     "key": "fazenda-ovelha",
+     "text": "Ovelha"
+    },
+    {
+     "key": "fazenda-coelho",
+     "text": "Coelho"
+    },
+    {
+     "key": "fazenda-gato",
+     "text": "Gato"
+    },
+    {
+     "key": "fazenda-cachorro",
+     "text": "Cachorro"
+    },
+    {
+     "key": "fazenda-vaca",
+     "text": "Vaca"
+    },
+    {
+     "key": "fazenda-cavalo",
+     "text": "Cavalo"
+    },
+    {
+     "key": "fazenda-cabra",
+     "text": "Cabra"
+    },
+    {
+     "key": "fazenda-pato",
+     "text": "Pato"
+    },
+    {
+     "key": "fazenda-touro",
+     "text": "Touro"
+    },
+    {
+     "key": "fazenda-burro",
+     "text": "Burro"
+    },
+    {
+     "key": "fazenda-galinha",
+     "text": "Galinha"
+    },
+    {
+     "key": "fazenda-porco",
+     "text": "Porco"
+    }
+   ]
+  },
+  {
+   "id": "aves",
+   "title": "Figuras — Aves",
+   "clips": [
+    {
+     "key": "aves-coruja",
+     "text": "Coruja"
+    },
+    {
+     "key": "aves-arara",
+     "text": "Arara"
+    },
+    {
+     "key": "aves-papagaio",
+     "text": "Papagaio"
+    },
+    {
+     "key": "aves-pinguim",
+     "text": "Pinguim"
+    },
+    {
+     "key": "aves-tucano",
+     "text": "Tucano"
+    },
+    {
+     "key": "aves-aguia",
+     "text": "Águia"
+    },
+    {
+     "key": "aves-flamingo",
+     "text": "Flamingo"
+    },
+    {
+     "key": "aves-pavao",
+     "text": "Pavão"
+    },
+    {
+     "key": "aves-beija-flor",
+     "text": "Beija-flor"
+    },
+    {
+     "key": "aves-garca-branca",
+     "text": "Garça branca"
+    },
+    {
+     "key": "aves-pica-pau",
+     "text": "Pica-pau"
+    },
+    {
+     "key": "aves-tuiuiu",
+     "text": "Tuiuiú"
+    }
+   ]
+  },
+  {
+   "id": "dinossauros",
+   "title": "Figuras — Dinossauros",
+   "clips": [
+    {
+     "key": "dinossauros-braquiossauro",
+     "text": "Braquiossauro"
+    },
+    {
+     "key": "dinossauros-t-rex",
+     "text": "T-rex"
+    },
+    {
+     "key": "dinossauros-estegossauro",
+     "text": "Estegossauro"
+    },
+    {
+     "key": "dinossauros-triceratops",
+     "text": "Tricerátops"
+    },
+    {
+     "key": "dinossauros-velociraptor",
+     "text": "Velociraptor"
+    },
+    {
+     "key": "dinossauros-anquilossauro",
+     "text": "Anquilossauro"
+    },
+    {
+     "key": "dinossauros-parassaurolofo",
+     "text": "Parassaurolofo"
+    },
+    {
+     "key": "dinossauros-diplodoco",
+     "text": "Diplodoco"
+    },
+    {
+     "key": "dinossauros-espinossauro",
+     "text": "Espinossauro"
+    },
+    {
+     "key": "dinossauros-paquicefalossauro",
+     "text": "Paquicefalossauro"
+    },
+    {
+     "key": "dinossauros-alossauro",
+     "text": "Alossauro"
+    },
+    {
+     "key": "dinossauros-iguanodonte",
+     "text": "Iguanodonte"
+    }
+   ]
+  }
+ ]
+}

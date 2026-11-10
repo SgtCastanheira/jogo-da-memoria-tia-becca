@@ -1,0 +1,969 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Conferência das cartas originais</title>
+  <style>
+    :root { color-scheme: light; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #263347; background: #f5f6fa; line-height: 1.5; scroll-behavior: smooth; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-width: 0; }
+    a { color: #174f94; text-underline-offset: .2em; }
+    a:hover { color: #0d3265; }
+    a:focus-visible { outline: 3px solid #174f94; outline-offset: 4px; border-radius: 4px; }
+    .skip-link { position: absolute; left: 1rem; top: -6rem; padding: .75rem 1rem; background: white; z-index: 2; }
+    .skip-link:focus { top: 1rem; }
+    .layout { width: min(100% - 2rem, 78rem); margin-inline: auto; }
+    header { background: #fff; border-bottom: 1px solid #dce2ec; padding: 2.5rem 0 2rem; }
+    .eyebrow { margin: 0 0 .5rem; font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #55647a; }
+    h1 { margin: 0 0 1rem; font-size: clamp(1.7rem, 4vw, 2.6rem); line-height: 1.2; }
+    header p { max-width: 58rem; margin: .75rem 0; }
+    .summary { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.25rem 0; }
+    .summary span { padding: .4rem .75rem; border-radius: 2rem; border: 1px solid #dce2ec; background: #f5f7fc; font-weight: 600; }
+    .review-status { border-left: 4px solid #a46408; padding: .75rem 1rem; background: #fff5e2; border-radius: 0 .5rem .5rem 0; }
+    .review-status strong { display: block; margin-bottom: .2rem; }
+    nav { margin-top: 1.5rem; }
+    nav ul { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; margin: .6rem 0 0; padding: 0; }
+    nav a { display: block; padding: .5rem .75rem; background: #f0f4fa; border-radius: .4rem; text-decoration: none; }
+    main { padding-block: 2rem; }
+    section { scroll-margin-top: 1rem; }
+    .category { margin-bottom: 3rem; }
+    .section-heading { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: .5rem 1rem; margin-bottom: 1rem; }
+    h2 { margin: 0; font-size: clamp(1.3rem, 3vw, 1.7rem); line-height: 1.3; }
+    .section-heading span { color: #55647a; }
+    .card-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+    .card { margin: 0; min-width: 0; background: white; border: 1px solid #dce2ec; border-radius: .8rem; overflow: hidden; }
+    .image-link { display: grid; place-items: center; width: 100%; aspect-ratio: 1; padding: .65rem; background: white; }
+    .image-link img { display: block; width: 100%; height: 100%; min-height: 0; object-fit: contain; }
+    figcaption { display: flex; flex-direction: column; gap: .2rem; padding: .7rem .8rem 1rem; font-size: .9rem; overflow-wrap: anywhere; }
+    .image-detail { font-size: .72rem; color: #55647a; }
+    .open-hint { margin-top: .2rem; color: #174f94; font-size: .75rem; }
+    .back-to-top { display: inline-block; margin-top: 1rem; padding-block: .3rem; }
+    .back-section { border-top: 1px solid #dce2ec; padding-top: 2rem; margin-bottom: 2rem; }
+    .back-section > p { max-width: 60rem; }
+    .canonical-back { max-width: 16rem; margin: 1rem 0 2rem; }
+    .comparison-note { border-left: 3px solid #77869c; padding-left: 1rem; }
+    .check-list { padding-left: 1.25rem; max-width: 64rem; }
+    .check-list li { margin-block: .5rem; }
+    footer { padding: 1.5rem 0 2rem; border-top: 1px solid #dce2ec; font-size: .85rem; color: #55647a; }
+    footer p { margin: .25rem 0; }
+    @media (min-width: 38rem) { .card-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; } }
+    @media (min-width: 58rem) { .card-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+    @media (min-width: 75rem) { .card-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+    @media (max-width: 23rem) { .layout { width: min(100% - 1rem, 78rem); } figcaption { padding-inline: .5rem; font-size: .8rem; } }
+    @media (prefers-reduced-motion: reduce) { :root { scroll-behavior: auto; } }
+    @media print { body { background: white; } nav, .back-to-top, .open-hint, .skip-link { display: none; }
+      .card-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } .card { break-inside: avoid; }
+      .category { break-before: page; } header { padding-top: 0; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#cartas">Ir para as cartas</a>
+  <header id="inicio">
+    <div class="layout">
+      <p class="eyebrow">Jogo da Memória · Conferência das imagens</p>
+      <h1>Cartas originais do PDF</h1>
+      <p>Confira as ilustrações, os nomes, os fundos e as bordas das cartas antes de utilizá-las no jogo.
+        Cada miniatura abre o arquivo PNG completo em outra aba.</p>
+      <div class="summary" aria-label="Quantidade de imagens">
+        <span>84 figuras únicas</span><span>7 categorias</span><span>1 verso rosa</span>
+      </div>
+      <div class="review-status" role="note">
+        <strong>Validação técnica concluída. Inspeção visual humana pendente.</strong>
+        A geração dos arquivos e as verificações automáticas não substituem sua avaliação visual.
+        Confira todas as categorias e compare os sete versos apresentados abaixo.
+      </div>
+      <nav aria-label="Categorias e conferência">
+        <strong>Ir para</strong>
+        <ul><li><a href="#categoria-espaco-1">Espaço — Parte 1</a></li><li><a href="#categoria-espaco-2">Espaço — Parte 2</a></li><li><a href="#categoria-selvagens">Animais Selvagens</a></li><li><a href="#categoria-marinhos">Animais Marinhos</a></li><li><a href="#categoria-fazenda">Animais da Fazenda</a></li><li><a href="#categoria-aves">Aves</a></li><li><a href="#categoria-dinossauros">Dinossauros</a></li><li><a href="#versos">Verso rosa e comparação</a></li><li><a href="#conferencia">O que conferir</a></li></ul>
+      </nav>
+    </div>
+  </header>
+  <main class="layout" id="cartas">
+    <section class="category" id="categoria-espaco-1" aria-labelledby="titulo-categoria-espaco-1">
+          <div class="section-heading"><h2 id="titulo-categoria-espaco-1">Espaço — Parte 1</h2>
+            <span>12 figuras únicas</span></div>
+          <div class="card-grid"><figure class="card">
+          <a class="image-link" href="cards/espaco-1/planeta-roxo.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Planeta roxo em outra aba">
+            <img src="cards/espaco-1/planeta-roxo.png" alt="Planeta roxo" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Planeta roxo</strong><span class="image-detail">espaco-1-planeta-roxo</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/espaco-1/satelite.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Satélite em outra aba">
+            <img src="cards/espaco-1/satelite.png" alt="Satélite" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Satélite</strong><span class="image-detail">espaco-1-satelite</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/espaco-1/terra.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Terra em outra aba">
+            <img src="cards/espaco-1/terra.png" alt="Terra" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Terra</strong><span class="image-detail">espaco-1-terra</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/espaco-1/planeta-azul.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Planeta azul em outra aba">
+            <img src="cards/espaco-1/planeta-azul.png" alt="Planeta azul" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Planeta azul</strong><span class="image-detail">espaco-1-planeta-azul</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/espaco-1/foguete.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Foguete em outra aba">
+            <img src="cards/espaco-1/foguete.png" alt="Foguete" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Foguete</strong><span class="image-detail">espaco-1-foguete</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/espaco-1/planeta-vermelho.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Planeta vermelho em outra aba">
+            <img src="cards/espaco-1/planeta-vermelho.png" alt="Planeta vermelho" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Planeta vermelho</strong><span class="image-detail">espaco-1-planeta-vermelho</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/espaco-1/meteoro-amarelo.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Meteoro amarelo em outra aba">
+            <img src="cards/espaco-1/meteoro-amarelo.png" alt="Meteoro amarelo" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Meteoro amarelo</strong><span class="image-detail">espaco-1-meteoro-amarelo</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/espaco-1/planeta-amarelo.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Planeta amarelo em outra aba">
+            <img src="cards/espaco-1/planeta-amarelo.png" alt="Planeta amarelo" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Planeta amarelo</strong><span class="image-detail">espaco-1-planeta-amarelo</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/espaco-1/galaxia.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Galáxia em outra aba">
+            <img src="cards/espaco-1/galaxia.png" alt="Galáxia" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Galáxia</strong><span class="image-detail">espaco-1-galaxia</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/espaco-1/estrelas-cadentes.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Estrelas cadentes em outra aba">
+            <img src="cards/espaco-1/estrelas-cadentes.png" alt="Estrelas cadentes" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Estrelas cadentes</strong><span class="image-detail">espaco-1-estrelas-cadentes</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/espaco-1/sol.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Sol em outra aba">
+            <img src="cards/espaco-1/sol.png" alt="Sol" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Sol</strong><span class="image-detail">espaco-1-sol</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/espaco-1/planeta-rosa-com-aneis.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Planeta rosa com anéis em outra aba">
+            <img src="cards/espaco-1/planeta-rosa-com-aneis.png" alt="Planeta rosa com anéis" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Planeta rosa com anéis</strong><span class="image-detail">espaco-1-planeta-rosa-com-aneis</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure></div>
+          <a class="back-to-top" href="#inicio">Voltar ao início</a>
+        </section><section class="category" id="categoria-espaco-2" aria-labelledby="titulo-categoria-espaco-2">
+          <div class="section-heading"><h2 id="titulo-categoria-espaco-2">Espaço — Parte 2</h2>
+            <span>12 figuras únicas</span></div>
+          <div class="card-grid"><figure class="card">
+          <a class="image-link" href="cards/espaco-2/planeta-alaranjado-com-aneis.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Planeta alaranjado com anéis em outra aba">
+            <img src="cards/espaco-2/planeta-alaranjado-com-aneis.png" alt="Planeta alaranjado com anéis" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Planeta alaranjado com anéis</strong><span class="image-detail">espaco-2-planeta-alaranjado-com-aneis</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/espaco-2/lua.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Lua em outra aba">
+            <img src="cards/espaco-2/lua.png" alt="Lua" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Lua</strong><span class="image-detail">espaco-2-lua</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/espaco-2/planeta-verde-com-aneis.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Planeta verde com anéis em outra aba">
+            <img src="cards/espaco-2/planeta-verde-com-aneis.png" alt="Planeta verde com anéis" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Planeta verde com anéis</strong><span class="image-detail">espaco-2-planeta-verde-com-aneis</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/espaco-2/disco-voador-com-feixe.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Disco voador com feixe de luz em outra aba">
+            <img src="cards/espaco-2/disco-voador-com-feixe.png" alt="Disco voador com feixe de luz" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Disco voador com feixe de luz</strong><span class="image-detail">espaco-2-disco-voador-com-feixe</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/espaco-2/buraco-negro.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Buraco negro em outra aba">
+            <img src="cards/espaco-2/buraco-negro.png" alt="Buraco negro" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Buraco negro</strong><span class="image-detail">espaco-2-buraco-negro</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/espaco-2/disco-voador-roxo.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Disco voador roxo em outra aba">
+            <img src="cards/espaco-2/disco-voador-roxo.png" alt="Disco voador roxo" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Disco voador roxo</strong><span class="image-detail">espaco-2-disco-voador-roxo</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/espaco-2/chuva-de-meteoros.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Chuva de meteoros em outra aba">
+            <img src="cards/espaco-2/chuva-de-meteoros.png" alt="Chuva de meteoros" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Chuva de meteoros</strong><span class="image-detail">espaco-2-chuva-de-meteoros</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/espaco-2/meteoro-verde.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Meteoro verde em outra aba">
+            <img src="cards/espaco-2/meteoro-verde.png" alt="Meteoro verde" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Meteoro verde</strong><span class="image-detail">espaco-2-meteoro-verde</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/espaco-2/estrela.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Estrela em outra aba">
+            <img src="cards/espaco-2/estrela.png" alt="Estrela" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Estrela</strong><span class="image-detail">espaco-2-estrela</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/espaco-2/asteroides.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Asteroides em outra aba">
+            <img src="cards/espaco-2/asteroides.png" alt="Asteroides" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Asteroides</strong><span class="image-detail">espaco-2-asteroides</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/espaco-2/estrela-brilhante.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Estrela brilhante em outra aba">
+            <img src="cards/espaco-2/estrela-brilhante.png" alt="Estrela brilhante" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Estrela brilhante</strong><span class="image-detail">espaco-2-estrela-brilhante</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/espaco-2/planeta-listrado.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Planeta listrado em outra aba">
+            <img src="cards/espaco-2/planeta-listrado.png" alt="Planeta listrado" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Planeta listrado</strong><span class="image-detail">espaco-2-planeta-listrado</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure></div>
+          <a class="back-to-top" href="#inicio">Voltar ao início</a>
+        </section><section class="category" id="categoria-selvagens" aria-labelledby="titulo-categoria-selvagens">
+          <div class="section-heading"><h2 id="titulo-categoria-selvagens">Animais Selvagens</h2>
+            <span>12 figuras únicas</span></div>
+          <div class="card-grid"><figure class="card">
+          <a class="image-link" href="cards/selvagens/coala.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Coala em outra aba">
+            <img src="cards/selvagens/coala.png" alt="Coala" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Coala</strong><span class="image-detail">selvagens-coala</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/selvagens/elefante.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Elefante em outra aba">
+            <img src="cards/selvagens/elefante.png" alt="Elefante" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Elefante</strong><span class="image-detail">selvagens-elefante</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/selvagens/camelo.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Camelo em outra aba">
+            <img src="cards/selvagens/camelo.png" alt="Camelo" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Camelo</strong><span class="image-detail">selvagens-camelo</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/selvagens/raposa.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Raposa em outra aba">
+            <img src="cards/selvagens/raposa.png" alt="Raposa" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Raposa</strong><span class="image-detail">selvagens-raposa</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/selvagens/leao.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Leão em outra aba">
+            <img src="cards/selvagens/leao.png" alt="Leão" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Leão</strong><span class="image-detail">selvagens-leao</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/selvagens/panda.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Panda em outra aba">
+            <img src="cards/selvagens/panda.png" alt="Panda" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Panda</strong><span class="image-detail">selvagens-panda</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/selvagens/tigre.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Tigre em outra aba">
+            <img src="cards/selvagens/tigre.png" alt="Tigre" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Tigre</strong><span class="image-detail">selvagens-tigre</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/selvagens/girafa.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Girafa em outra aba">
+            <img src="cards/selvagens/girafa.png" alt="Girafa" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Girafa</strong><span class="image-detail">selvagens-girafa</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/selvagens/capivara.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Capivara em outra aba">
+            <img src="cards/selvagens/capivara.png" alt="Capivara" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Capivara</strong><span class="image-detail">selvagens-capivara</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/selvagens/zebra.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Zebra em outra aba">
+            <img src="cards/selvagens/zebra.png" alt="Zebra" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Zebra</strong><span class="image-detail">selvagens-zebra</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/selvagens/porco-espinho.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Porco-espinho em outra aba">
+            <img src="cards/selvagens/porco-espinho.png" alt="Porco-espinho" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Porco-espinho</strong><span class="image-detail">selvagens-porco-espinho</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/selvagens/urso.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Urso em outra aba">
+            <img src="cards/selvagens/urso.png" alt="Urso" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Urso</strong><span class="image-detail">selvagens-urso</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure></div>
+          <a class="back-to-top" href="#inicio">Voltar ao início</a>
+        </section><section class="category" id="categoria-marinhos" aria-labelledby="titulo-categoria-marinhos">
+          <div class="section-heading"><h2 id="titulo-categoria-marinhos">Animais Marinhos</h2>
+            <span>12 figuras únicas</span></div>
+          <div class="card-grid"><figure class="card">
+          <a class="image-link" href="cards/marinhos/golfinho.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Golfinho em outra aba">
+            <img src="cards/marinhos/golfinho.png" alt="Golfinho" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Golfinho</strong><span class="image-detail">marinhos-golfinho</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/marinhos/foca.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Foca em outra aba">
+            <img src="cards/marinhos/foca.png" alt="Foca" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Foca</strong><span class="image-detail">marinhos-foca</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/marinhos/baleia.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Baleia em outra aba">
+            <img src="cards/marinhos/baleia.png" alt="Baleia" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Baleia</strong><span class="image-detail">marinhos-baleia</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/marinhos/tubarao.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Tubarão em outra aba">
+            <img src="cards/marinhos/tubarao.png" alt="Tubarão" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Tubarão</strong><span class="image-detail">marinhos-tubarao</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/marinhos/polvo.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Polvo em outra aba">
+            <img src="cards/marinhos/polvo.png" alt="Polvo" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Polvo</strong><span class="image-detail">marinhos-polvo</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/marinhos/tartaruga.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Tartaruga em outra aba">
+            <img src="cards/marinhos/tartaruga.png" alt="Tartaruga" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Tartaruga</strong><span class="image-detail">marinhos-tartaruga</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/marinhos/peixe-palhaco.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Peixe-palhaço em outra aba">
+            <img src="cards/marinhos/peixe-palhaco.png" alt="Peixe-palhaço" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Peixe-palhaço</strong><span class="image-detail">marinhos-peixe-palhaco</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/marinhos/cavalo-marinho.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Cavalo-marinho em outra aba">
+            <img src="cards/marinhos/cavalo-marinho.png" alt="Cavalo-marinho" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Cavalo-marinho</strong><span class="image-detail">marinhos-cavalo-marinho</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/marinhos/estrela-do-mar.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Estrela do mar em outra aba">
+            <img src="cards/marinhos/estrela-do-mar.png" alt="Estrela do mar" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Estrela do mar</strong><span class="image-detail">marinhos-estrela-do-mar</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/marinhos/caranguejo.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Caranguejo em outra aba">
+            <img src="cards/marinhos/caranguejo.png" alt="Caranguejo" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Caranguejo</strong><span class="image-detail">marinhos-caranguejo</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/marinhos/agua-viva.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Água-viva em outra aba">
+            <img src="cards/marinhos/agua-viva.png" alt="Água-viva" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Água-viva</strong><span class="image-detail">marinhos-agua-viva</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/marinhos/arraia.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Arraia em outra aba">
+            <img src="cards/marinhos/arraia.png" alt="Arraia" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Arraia</strong><span class="image-detail">marinhos-arraia</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure></div>
+          <a class="back-to-top" href="#inicio">Voltar ao início</a>
+        </section><section class="category" id="categoria-fazenda" aria-labelledby="titulo-categoria-fazenda">
+          <div class="section-heading"><h2 id="titulo-categoria-fazenda">Animais da Fazenda</h2>
+            <span>12 figuras únicas</span></div>
+          <div class="card-grid"><figure class="card">
+          <a class="image-link" href="cards/fazenda/ovelha.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Ovelha em outra aba">
+            <img src="cards/fazenda/ovelha.png" alt="Ovelha" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Ovelha</strong><span class="image-detail">fazenda-ovelha</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/fazenda/coelho.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Coelho em outra aba">
+            <img src="cards/fazenda/coelho.png" alt="Coelho" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Coelho</strong><span class="image-detail">fazenda-coelho</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/fazenda/gato.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Gato em outra aba">
+            <img src="cards/fazenda/gato.png" alt="Gato" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Gato</strong><span class="image-detail">fazenda-gato</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/fazenda/cachorro.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Cachorro em outra aba">
+            <img src="cards/fazenda/cachorro.png" alt="Cachorro" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Cachorro</strong><span class="image-detail">fazenda-cachorro</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/fazenda/vaca.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Vaca em outra aba">
+            <img src="cards/fazenda/vaca.png" alt="Vaca" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Vaca</strong><span class="image-detail">fazenda-vaca</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/fazenda/cavalo.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Cavalo em outra aba">
+            <img src="cards/fazenda/cavalo.png" alt="Cavalo" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Cavalo</strong><span class="image-detail">fazenda-cavalo</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/fazenda/cabra.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Cabra em outra aba">
+            <img src="cards/fazenda/cabra.png" alt="Cabra" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Cabra</strong><span class="image-detail">fazenda-cabra</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/fazenda/pato.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Pato em outra aba">
+            <img src="cards/fazenda/pato.png" alt="Pato" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Pato</strong><span class="image-detail">fazenda-pato</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/fazenda/touro.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Touro em outra aba">
+            <img src="cards/fazenda/touro.png" alt="Touro" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Touro</strong><span class="image-detail">fazenda-touro</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/fazenda/burro.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Burro em outra aba">
+            <img src="cards/fazenda/burro.png" alt="Burro" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Burro</strong><span class="image-detail">fazenda-burro</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/fazenda/galinha.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Galinha em outra aba">
+            <img src="cards/fazenda/galinha.png" alt="Galinha" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Galinha</strong><span class="image-detail">fazenda-galinha</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/fazenda/porco.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Porco em outra aba">
+            <img src="cards/fazenda/porco.png" alt="Porco" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Porco</strong><span class="image-detail">fazenda-porco</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure></div>
+          <a class="back-to-top" href="#inicio">Voltar ao início</a>
+        </section><section class="category" id="categoria-aves" aria-labelledby="titulo-categoria-aves">
+          <div class="section-heading"><h2 id="titulo-categoria-aves">Aves</h2>
+            <span>12 figuras únicas</span></div>
+          <div class="card-grid"><figure class="card">
+          <a class="image-link" href="cards/aves/coruja.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Coruja em outra aba">
+            <img src="cards/aves/coruja.png" alt="Coruja" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Coruja</strong><span class="image-detail">aves-coruja</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/aves/arara.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Arara em outra aba">
+            <img src="cards/aves/arara.png" alt="Arara" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Arara</strong><span class="image-detail">aves-arara</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/aves/papagaio.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Papagaio em outra aba">
+            <img src="cards/aves/papagaio.png" alt="Papagaio" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Papagaio</strong><span class="image-detail">aves-papagaio</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/aves/pinguim.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Pinguim em outra aba">
+            <img src="cards/aves/pinguim.png" alt="Pinguim" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Pinguim</strong><span class="image-detail">aves-pinguim</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/aves/tucano.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Tucano em outra aba">
+            <img src="cards/aves/tucano.png" alt="Tucano" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Tucano</strong><span class="image-detail">aves-tucano</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/aves/aguia.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Águia em outra aba">
+            <img src="cards/aves/aguia.png" alt="Águia" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Águia</strong><span class="image-detail">aves-aguia</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/aves/flamingo.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Flamingo em outra aba">
+            <img src="cards/aves/flamingo.png" alt="Flamingo" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Flamingo</strong><span class="image-detail">aves-flamingo</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/aves/pavao.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Pavão em outra aba">
+            <img src="cards/aves/pavao.png" alt="Pavão" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Pavão</strong><span class="image-detail">aves-pavao</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/aves/beija-flor.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Beija-flor em outra aba">
+            <img src="cards/aves/beija-flor.png" alt="Beija-flor" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Beija-flor</strong><span class="image-detail">aves-beija-flor</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/aves/garca-branca.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Garça branca em outra aba">
+            <img src="cards/aves/garca-branca.png" alt="Garça branca" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Garça branca</strong><span class="image-detail">aves-garca-branca</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/aves/pica-pau.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Pica-pau em outra aba">
+            <img src="cards/aves/pica-pau.png" alt="Pica-pau" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Pica-pau</strong><span class="image-detail">aves-pica-pau</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/aves/tuiuiu.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Tuiuiú em outra aba">
+            <img src="cards/aves/tuiuiu.png" alt="Tuiuiú" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Tuiuiú</strong><span class="image-detail">aves-tuiuiu</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure></div>
+          <a class="back-to-top" href="#inicio">Voltar ao início</a>
+        </section><section class="category" id="categoria-dinossauros" aria-labelledby="titulo-categoria-dinossauros">
+          <div class="section-heading"><h2 id="titulo-categoria-dinossauros">Dinossauros</h2>
+            <span>12 figuras únicas</span></div>
+          <div class="card-grid"><figure class="card">
+          <a class="image-link" href="cards/dinossauros/braquiossauro.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Braquiossauro em outra aba">
+            <img src="cards/dinossauros/braquiossauro.png" alt="Braquiossauro" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Braquiossauro</strong><span class="image-detail">dinossauros-braquiossauro</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/dinossauros/t-rex.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de T-rex em outra aba">
+            <img src="cards/dinossauros/t-rex.png" alt="T-rex" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>T-rex</strong><span class="image-detail">dinossauros-t-rex</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/dinossauros/estegossauro.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Estegossauro em outra aba">
+            <img src="cards/dinossauros/estegossauro.png" alt="Estegossauro" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Estegossauro</strong><span class="image-detail">dinossauros-estegossauro</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/dinossauros/triceratops.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Tricerátops em outra aba">
+            <img src="cards/dinossauros/triceratops.png" alt="Tricerátops" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Tricerátops</strong><span class="image-detail">dinossauros-triceratops</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/dinossauros/velociraptor.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Velociraptor em outra aba">
+            <img src="cards/dinossauros/velociraptor.png" alt="Velociraptor" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Velociraptor</strong><span class="image-detail">dinossauros-velociraptor</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/dinossauros/anquilossauro.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Anquilossauro em outra aba">
+            <img src="cards/dinossauros/anquilossauro.png" alt="Anquilossauro" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Anquilossauro</strong><span class="image-detail">dinossauros-anquilossauro</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/dinossauros/parassaurolofo.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Parassaurolofo em outra aba">
+            <img src="cards/dinossauros/parassaurolofo.png" alt="Parassaurolofo" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Parassaurolofo</strong><span class="image-detail">dinossauros-parassaurolofo</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/dinossauros/diplodoco.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Diplodoco em outra aba">
+            <img src="cards/dinossauros/diplodoco.png" alt="Diplodoco" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Diplodoco</strong><span class="image-detail">dinossauros-diplodoco</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/dinossauros/espinossauro.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Espinossauro em outra aba">
+            <img src="cards/dinossauros/espinossauro.png" alt="Espinossauro" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Espinossauro</strong><span class="image-detail">dinossauros-espinossauro</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/dinossauros/paquicefalossauro.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Paquicefalossauro em outra aba">
+            <img src="cards/dinossauros/paquicefalossauro.png" alt="Paquicefalossauro" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Paquicefalossauro</strong><span class="image-detail">dinossauros-paquicefalossauro</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/dinossauros/alossauro.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Alossauro em outra aba">
+            <img src="cards/dinossauros/alossauro.png" alt="Alossauro" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Alossauro</strong><span class="image-detail">dinossauros-alossauro</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards/dinossauros/iguanodonte.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Iguanodonte em outra aba">
+            <img src="cards/dinossauros/iguanodonte.png" alt="Iguanodonte" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Iguanodonte</strong><span class="image-detail">dinossauros-iguanodonte</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure></div>
+          <a class="back-to-top" href="#inicio">Voltar ao início</a>
+        </section>
+    <section class="back-section" id="versos" aria-labelledby="titulo-versos">
+      <h2 id="titulo-versos">Verso rosa original</h2>
+      <p>Esta é a imagem preparada para o verso comum das cartas.
+        Abaixo estão as amostras extraídas das sete páginas de versos para comparação humana.</p>
+      <div class="canonical-back"><figure class="card">
+          <a class="image-link" href="cards/card-back.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Verso rosa original em outra aba">
+            <img src="cards/card-back.png" alt="Verso rosa original" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Verso rosa original</strong><span class="image-detail">Arquivo card-back.png</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure></div>
+      <h3>Amostras dos sete conjuntos</h3>
+      <p class="comparison-note">Os sete versos são idênticos pixel a pixel; verso comum extraído da página 2.</p>
+      <div class="card-grid"><figure class="card">
+          <a class="image-link" href="cards-review/verso-conjunto-1.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Verso do conjunto 1 em outra aba">
+            <img src="cards-review/verso-conjunto-1.png" alt="Verso do conjunto 1" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Verso do conjunto 1</strong><span class="image-detail">Página 2 do PDF</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards-review/verso-conjunto-2.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Verso do conjunto 2 em outra aba">
+            <img src="cards-review/verso-conjunto-2.png" alt="Verso do conjunto 2" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Verso do conjunto 2</strong><span class="image-detail">Página 4 do PDF</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards-review/verso-conjunto-3.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Verso do conjunto 3 em outra aba">
+            <img src="cards-review/verso-conjunto-3.png" alt="Verso do conjunto 3" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Verso do conjunto 3</strong><span class="image-detail">Página 6 do PDF</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards-review/verso-conjunto-4.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Verso do conjunto 4 em outra aba">
+            <img src="cards-review/verso-conjunto-4.png" alt="Verso do conjunto 4" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Verso do conjunto 4</strong><span class="image-detail">Página 8 do PDF</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards-review/verso-conjunto-5.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Verso do conjunto 5 em outra aba">
+            <img src="cards-review/verso-conjunto-5.png" alt="Verso do conjunto 5" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Verso do conjunto 5</strong><span class="image-detail">Página 10 do PDF</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards-review/verso-conjunto-6.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Verso do conjunto 6 em outra aba">
+            <img src="cards-review/verso-conjunto-6.png" alt="Verso do conjunto 6" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Verso do conjunto 6</strong><span class="image-detail">Página 12 do PDF</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure>
+<figure class="card">
+          <a class="image-link" href="cards-review/verso-conjunto-7.png" target="_blank" rel="noopener"
+             aria-label="Abrir imagem completa de Verso do conjunto 7 em outra aba">
+            <img src="cards-review/verso-conjunto-7.png" alt="Verso do conjunto 7" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Verso do conjunto 7</strong><span class="image-detail">Página 14 do PDF</span>
+            <span class="open-hint">Abrir imagem completa</span>
+          </figcaption>
+        </figure></div>
+      <a class="back-to-top" href="#inicio">Voltar ao início</a>
+    </section>
+    <section class="back-section" id="conferencia" aria-labelledby="titulo-conferencia">
+      <h2 id="titulo-conferencia">O que conferir antes de aprovar</h2>
+      <ul class="check-list">
+        <li>Há 12 figuras diferentes em cada categoria, totalizando 84 figuras.</li>
+        <li>Ilustrações, textos, fundos e bordas arredondadas estão completos, sem partes de cartas vizinhas.</li>
+        <li>Os nomes estão legíveis e correspondem às figuras.</li>
+        <li>As proporções originais foram preservadas; diferenças que já existem no PDF foram mantidas.</li>
+        <li>Os sete versos apresentam a mesma arte, antes de confirmar o uso do verso comum.</li>
+      </ul>
+      <p>Abra os PNGs completos para examinar detalhes. A aprovação visual depende da inspeção humana desta página.</p>
+    </section>
+  </main>
+  <footer>
+    <div class="layout">
+      <p>Página de conferência das imagens extraídas do PDF original.</p>
+      <p>As miniaturas ajustam apenas a exibição. Os PNGs são abertos em sua resolução integral.</p>
+    </div>
+  </footer>
+</body>
+</html>

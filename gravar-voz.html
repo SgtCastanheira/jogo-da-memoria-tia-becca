@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Gravar a voz da Tia</title>
+  <link rel="icon" type="image/png" href="icons/icon-192.png">
+  <style>
+    :root { color-scheme: light; --play: #b4346a; --play-deep: #8c2152; --ink: #3b2431; --soft: #6a4d5c; --ok: #2f8a58; --line: #ecd2de; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font: 500 1rem/1.5 'Nunito Variable', Nunito, ui-rounded, system-ui, sans-serif; color: var(--ink); background: #fff7f2; }
+    main { width: min(100% - 24px, 720px); margin: 0 auto; padding: 16px 0 48px; }
+    h1 { margin: 0 0 4px; font-size: 1.8rem; font-weight: 900; color: var(--play-deep); }
+    h2 { margin: 24px 0 8px; font-size: 1.2rem; }
+    p { margin: 0 0 8px; }
+    .lead { color: var(--soft); }
+    .progress { margin: 14px 0 0; font-weight: 800; }
+    .bar { height: 12px; margin-top: 6px; border-radius: 6px; background: #f3e2ea; overflow: hidden; }
+    .bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #ffc83d, #e39a00); transition: width 300ms; }
+    .stage { position: sticky; top: 0; z-index: 5; margin-top: 16px; padding: 16px; border: 3px solid var(--line); border-radius: 24px; background: #fff; box-shadow: 0 6px 20px #58374a14; }
+    .stage .group { margin: 0; color: var(--soft); font-size: .95rem; font-weight: 700; }
+    .stage .say { margin: 6px 0 0; color: var(--soft); }
+    .phrase { margin: 0 0 10px; font-size: clamp(1.8rem, 8vw, 2.6rem); font-weight: 900; line-height: 1.15; color: var(--ink); overflow-wrap: anywhere; }
+    .key { color: var(--soft); font-size: .85rem; }
+    .meter { height: 14px; margin: 6px 0 12px; border-radius: 7px; background: #f3e2ea; overflow: hidden; }
+    .meter i { display: block; height: 100%; width: 0; background: var(--ok); transition: width 60ms linear; }
+    .controls { display: flex; flex-wrap: wrap; gap: 8px; }
+    button { min-height: 52px; padding: 0 20px; border: 2px solid var(--line); border-radius: 26px; background: #fff; color: var(--ink); font: inherit; font-weight: 800; cursor: pointer; touch-action: manipulation; }
+    button:focus-visible { outline: 3px solid #5c3c77; outline-offset: 3px; }
+    button:disabled { opacity: .45; cursor: not-allowed; }
+    button.primary { background: var(--play); border-color: var(--play); color: #fff; min-width: 190px; font-size: 1.15rem; }
+    button.primary.recording { background: #d9480f; border-color: #d9480f; animation: pulse 1s ease-in-out infinite; }
+    button.small { min-height: 44px; padding: 0 14px; font-size: .95rem; }
+    @keyframes pulse { 50% { box-shadow: 0 0 0 8px #d9480f33; } }
+    @media (prefers-reduced-motion: reduce) { button.primary.recording { animation: none; } .bar i, .meter i { transition: none; } }
+    .status { min-height: 1.5em; margin: 10px 0 0; font-weight: 700; }
+    .status.error { color: #b02a2a; } .status.ok { color: var(--ok); }
+    label.opt { display: flex; align-items: center; gap: 8px; margin-top: 10px; font-size: .95rem; }
+    label.opt input { width: 22px; height: 22px; }
+    details { margin-top: 10px; border: 2px solid var(--line); border-radius: 18px; background: #fff; }
+    summary { padding: 12px 14px; font-weight: 800; cursor: pointer; }
+    .items { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; padding: 4px 12px 14px; }
+    .item { display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 6px 12px; text-align: left; font-weight: 700; border-radius: 16px; }
+    .item.current { border-color: var(--play); background: #fff0f6; }
+    .item .mark { flex: none; width: 22px; height: 22px; display: grid; place-items: center; border-radius: 50%; border: 2px solid var(--line); font-size: .8rem; }
+    .item.done .mark { background: var(--ok); border-color: var(--ok); color: #fff; }
+    .tools { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    ol { padding-left: 22px; } li { margin-bottom: 6px; }
+    code { padding: 1px 6px; border-radius: 6px; background: #f3e2ea; font-size: .92em; }
+    .note { padding: 12px 14px; border-radius: 16px; background: #eaf7ef; color: #1f5a3a; font-weight: 700; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Gravar a voz da Tia</h1>
+  <p class="lead">Grave cada palavra ou frase no seu ritmo. O jogo passa a usar a sua voz no lugar da voz do aparelho. Se alguma ficar sem gravação, o jogo continua falando com a voz do aparelho.</p>
+  <p class="note">Nada sai do seu computador: as gravações ficam guardadas só neste navegador até você baixar o arquivo.</p>
+
+  <p class="progress" aria-live="polite"><span id="count">Carregando…</span><span class="bar" role="progressbar" aria-label="Gravações feitas" id="bar" aria-valuemin="0" aria-valuenow="0"><i id="fill"></i></span></p>
+
+  <section class="stage" aria-labelledby="stage-title">
+    <p class="group" id="stage-title"></p>
+    <p class="say">Diga, sorrindo:</p>
+    <p class="phrase" id="phrase">…</p>
+    <p class="key" id="key"></p>
+    <div class="meter" aria-hidden="true"><i id="meter"></i></div>
+    <div class="controls">
+      <button type="button" class="primary" id="rec">● Gravar</button>
+      <button type="button" id="play" disabled>▶ Ouvir</button>
+      <button type="button" id="prev" aria-label="Anterior">‹ Anterior</button>
+      <button type="button" id="next" aria-label="Próxima">Próxima ›</button>
+    </div>
+    <label class="opt"><input type="checkbox" id="auto" checked> Ir para a próxima sozinho depois de gravar</label>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </section>
+
+  <h2>Entregar as gravações</h2>
+  <p>Quando terminar (ou quiser guardar o que já fez), baixe tudo de uma vez:</p>
+  <div class="tools">
+    <button type="button" class="primary" id="zip" style="min-width:0" disabled>⬇ Baixar tudo (.zip)</button>
+    <button type="button" class="small" id="erase" disabled>Apagar tudo</button>
+  </div>
+  <ol>
+    <li>Descompacte o arquivo na pasta <code>public/voice/clips/</code> do jogo.</li>
+    <li>Rode <code>npm run voice:manifest</code> (ele mostra quantas faltam).</li>
+    <li>Abra o jogo: ele já usa a sua voz.</li>
+  </ol>
+
+  <h2>Todas as gravações</h2>
+  <div id="list"></div>
+</main>
+
+<script>
+'use strict';
+const $ = (id) => document.getElementById(id);
+const SAMPLE_RATE = 22050;          // voz com boa qualidade e arquivos pequenos
+const els = { count: $('count'), bar: $('bar'), fill: $('fill'), group: $('stage-title'), phrase: $('phrase'), key: $('key'), meter: $('meter'), rec: $('rec'), play: $('play'), prev: $('prev'), next: $('next'), auto: $('auto'), status: $('status'), zip: $('zip'), erase: $('erase'), list: $('list') };
+
+let clips = [];          // [{ key, text, group }]
+let index = 0;
+const done = new Map();  // key -> { blob, seconds }
+let recording = false;
+let busy = false;
+
+/* ---------- armazenamento (IndexedDB; se bloqueado, só em memória) ---------- */
+let db = null;
+const idb = {
+  open() { return new Promise((resolve) => { try { const r = indexedDB.open('becca-voz-da-tia', 1); r.onupgradeneeded = () => r.result.createObjectStore('clips'); r.onsuccess = () => resolve(r.result); r.onerror = () => resolve(null); } catch { resolve(null); } }); },
+  tx(mode, fn) { return new Promise((resolve) => { if (!db) return resolve(undefined); try { const t = db.transaction('clips', mode); const out = fn(t.objectStore('clips')); t.oncomplete = () => resolve(out && 'result' in out ? out.result : undefined); t.onerror = () => resolve(undefined); } catch { resolve(undefined); } }); },
+  put(key, value) { return this.tx('readwrite', (s) => s.put(value, key)); },
+  del(key) { return this.tx('readwrite', (s) => s.delete(key)); },
+  clear() { return this.tx('readwrite', (s) => s.clear()); },
+  all() { return new Promise((resolve) => { if (!db) return resolve([]); try { const out = []; const r = db.transaction('clips').objectStore('clips').openCursor(); r.onsuccess = () => { const c = r.result; if (c) { out.push([c.key, c.value]); c.continue(); } else resolve(out); }; r.onerror = () => resolve([]); } catch { resolve([]); } }); },
+};
+
+/* ---------- mensagens ---------- */
+function say(text, kind = '') { els.status.textContent = text; els.status.className = 'status ' + kind; }
+
+/* ---------- tela ---------- */
+function render() {
+  const clip = clips[index];
+  if (!clip) return;
+  els.group.textContent = `${clip.group} · ${index + 1} de ${clips.length}`;
+  els.phrase.textContent = clip.text;
+  els.key.textContent = `arquivo: ${clip.key}.wav`;
+  const has = done.has(clip.key);
+  els.rec.textContent = recording ? '■ Parar' : (has ? '● Gravar de novo' : '● Gravar');
+  els.rec.classList.toggle('recording', recording);
+  els.rec.disabled = busy;
+  els.play.disabled = !has || recording || busy;
+  els.prev.disabled = index === 0 || recording || busy;
+  els.next.disabled = index === clips.length - 1 || recording || busy;
+  const n = done.size;
+  els.count.textContent = `${n} de ${clips.length} gravadas`;
+  els.bar.setAttribute('aria-valuemax', clips.length); els.bar.setAttribute('aria-valuenow', n);
+  els.fill.style.width = `${clips.length ? (n / clips.length) * 100 : 0}%`;
+  els.zip.disabled = n === 0; els.erase.disabled = n === 0;
+  document.querySelectorAll('.item').forEach((el) => {
+    el.classList.toggle('current', el.dataset.key === clip.key);
+    el.classList.toggle('done', done.has(el.dataset.key));
+    el.querySelector('.mark').textContent = done.has(el.dataset.key) ? '✓' : '';
+  });
+  document.querySelectorAll('details[data-group]').forEach((d) => {
+    const mine = clips.filter((c) => c.group === d.dataset.group);
+    d.querySelector('summary').textContent = `${d.dataset.group} — ${mine.filter((c) => done.has(c.key)).length}/${mine.length}`;
+  });
+}
+
+function buildList() {
+  els.list.textContent = '';
+  const groups = [...new Set(clips.map((c) => c.group))];
+  for (const group of groups) {
+    const details = document.createElement('details'); details.dataset.group = group;
+    details.appendChild(document.createElement('summary'));
+    const items = document.createElement('div'); items.className = 'items';
+    for (const clip of clips.filter((c) => c.group === group)) {
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'item'; b.dataset.key = clip.key;
+      b.innerHTML = '<span class="mark" aria-hidden="true"></span><span></span>'; b.lastChild.textContent = clip.text;
+      b.addEventListener('click', () => { if (recording || busy) return; index = clips.indexOf(clip); say(''); render(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+      items.appendChild(b);
+    }
+    details.appendChild(items); els.list.appendChild(details);
+  }
+}
+
+/* ---------- microfone ---------- */
+let stream = null, recorder = null, chunks = [], meterCtx = null, analyser = null, raf = 0;
+
+async function ensureStream() {
+  if (stream) return stream;
+  if (!navigator.mediaDevices || !window.MediaRecorder) throw new Error('Este navegador não consegue gravar. Use o Chrome, Edge, Firefox ou Safari atualizado.');
+  if (!window.isSecureContext) throw new Error('Para usar o microfone, abra esta página pelo endereço localhost ou https.');
+  stream = await navigator.mediaDevices.getUserMedia({ audio: { channelCount: 1, echoCancellation: true, noiseSuppression: true, autoGainControl: false } });
+  try {
+    meterCtx = new (window.AudioContext || window.webkitAudioContext)();
+    analyser = meterCtx.createAnalyser(); analyser.fftSize = 512;
+    meterCtx.createMediaStreamSource(stream).connect(analyser);
+    const data = new Uint8Array(analyser.fftSize);
+    const tick = () => { analyser.getByteTimeDomainData(data); let peak = 0; for (const v of data) peak = Math.max(peak, Math.abs(v - 128)); els.meter.style.width = Math.min(100, peak / 128 * 140) + '%'; raf = requestAnimationFrame(tick); };
+    tick();
+  } catch { /* o medidor é só um extra */ }
+  return stream;
+}
+
+function pickMime() {
+  return ['audio/webm;codecs=opus', 'audio/webm', 'audio/mp4', 'audio/ogg;codecs=opus'].find((t) => window.MediaRecorder.isTypeSupported && MediaRecorder.isTypeSupported(t)) || '';
+}
+
+async function start() {
+  try {
+    busy = true; render();
+    const s = await ensureStream();
+    const mime = pickMime();
+    recorder = new MediaRecorder(s, mime ? { mimeType: mime } : undefined);
+    chunks = [];
+    recorder.ondataavailable = (e) => { if (e.data && e.data.size) chunks.push(e.data); };
+    recorder.onstop = finish;
+    recorder.start();
+    recording = true; busy = false; say('Gravando… fale agora. Toque em Parar quando terminar (ou aperte a barra de espaço).'); render();
+  } catch (error) {
+    busy = false; recording = false; render();
+    say(error && error.name === 'NotAllowedError' ? 'O navegador bloqueou o microfone. Permita o uso do microfone e tente de novo.' : (error && error.message) || 'Não consegui usar o microfone.', 'error');
+  }
+}
+
+function stop() {
+  if (!recording || !recorder) return;
+  busy = true; render(); say('Terminando…');
+  setTimeout(() => { try { recorder.stop(); } catch { /* já parou */ } }, 250);   // deixa o fim da palavra entrar
+}
+
+async function finish() {
+  recording = false;
+  const clip = clips[index];
+  try {
+    const { blob, seconds, peak } = await toWav(new Blob(chunks, { type: recorder.mimeType }));
+    if (seconds < .25) { busy = false; render(); return say('Não ouvi nada. Chegue mais perto do microfone e tente de novo.', 'error'); }
+    done.set(clip.key, { blob, seconds });
+    await idb.put(clip.key, { blob, seconds });
+    busy = false;
+    const low = peak < .05 ? ' (o volume ficou baixo: se puder, fale mais perto)' : '';
+    const took = `Gravado! ${seconds.toFixed(1).replace('.', ',')} s${low}.`;
+    if (els.auto.checked && index < clips.length - 1) { index++; render(); say(`${took} Próxima: ${clips[index].text}`, 'ok'); }
+    else { render(); say(`${took} Toque em Ouvir para conferir.`, 'ok'); }
+  } catch (error) {
+    busy = false; render(); say('Não consegui processar essa gravação. Tente de novo.', 'error');
+  }
+}
+
+/* ---------- WAV: mono, 22 kHz, sem silêncio nas pontas, volume nivelado ---------- */
+async function toWav(blob) {
+  const Ctx = window.AudioContext || window.webkitAudioContext;
+  const ac = new Ctx();
+  const decoded = await ac.decodeAudioData(await blob.arrayBuffer());
+  ac.close();
+  const frames = Math.max(1, Math.ceil(decoded.duration * SAMPLE_RATE));
+  const off = new OfflineAudioContext(1, frames, SAMPLE_RATE);
+  const src = off.createBufferSource(); src.buffer = decoded; src.connect(off.destination); src.start();
+  const rendered = await off.startRendering();
+  const x = rendered.getChannelData(0);
+  let peak = 0; for (let i = 0; i < x.length; i++) peak = Math.max(peak, Math.abs(x[i]));
+  if (peak < .004) return { blob: wavBlob(new Float32Array(0)), seconds: 0, peak };
+  const threshold = Math.max(.012, peak * .06);
+  let a = 0, b = x.length - 1;
+  while (a < x.length && Math.abs(x[a]) < threshold) a++;
+  while (b > a && Math.abs(x[b]) < threshold) b--;
+  a = Math.max(0, a - Math.round(SAMPLE_RATE * .12)); b = Math.min(x.length - 1, b + Math.round(SAMPLE_RATE * .18));
+  const out = x.slice(a, b + 1);
+  let outPeak = 0; for (let i = 0; i < out.length; i++) outPeak = Math.max(outPeak, Math.abs(out[i]));
+  const gain = Math.min(12, .89 / (outPeak || 1));    // nivela para ~ -1 dBFS, sem inflar só ruído
+  for (let i = 0; i < out.length; i++) out[i] *= gain;
+  return { blob: wavBlob(out), seconds: out.length / SAMPLE_RATE, peak };
+}
+
+function wavBlob(samples) {
+  const buffer = new ArrayBuffer(44 + samples.length * 2); const v = new DataView(buffer);
+  const str = (o, s) => { for (let i = 0; i < s.length; i++) v.setUint8(o + i, s.charCodeAt(i)); };
+  str(0, 'RIFF'); v.setUint32(4, 36 + samples.length * 2, true); str(8, 'WAVE'); str(12, 'fmt ');
+  v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, 1, true); v.setUint32(24, SAMPLE_RATE, true);
+  v.setUint32(28, SAMPLE_RATE * 2, true); v.setUint16(32, 2, true); v.setUint16(34, 16, true); str(36, 'data'); v.setUint32(40, samples.length * 2, true);
+  for (let i = 0; i < samples.length; i++) v.setInt16(44 + i * 2, Math.max(-1, Math.min(1, samples[i])) * 0x7fff, true);
+  return new Blob([buffer], { type: 'audio/wav' });
+}
+
+/* ---------- ouvir ---------- */
+let audio = null;
+function play() {
+  const rec = done.get(clips[index].key); if (!rec) return;
+  if (audio) { audio.pause(); URL.revokeObjectURL(audio.src); }
+  audio = new Audio(URL.createObjectURL(rec.blob)); audio.play().catch(() => say('Não consegui tocar o áudio.', 'error'));
+}
+
+/* ---------- ZIP (sem compressão; o WAV já é pequeno) ---------- */
+const CRC = (() => { const t = new Uint32Array(256); for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return t; })();
+const crc32 = (d) => { let c = 0xffffffff; for (let i = 0; i < d.length; i++) c = CRC[(c ^ d[i]) & 255] ^ (c >>> 8); return (c ^ 0xffffffff) >>> 0; };
+function makeZip(files) {
+  const enc = new TextEncoder(); const now = new Date();
+  const time = (now.getHours() << 11) | (now.getMinutes() << 5) | (now.getSeconds() >> 1);
+  const date = ((now.getFullYear() - 1980) << 9) | ((now.getMonth() + 1) << 5) | now.getDate();
+  const parts = []; const central = []; let offset = 0;
+  for (const f of files) {
+    const name = enc.encode(f.name); const crc = crc32(f.data);
+    const lh = new DataView(new ArrayBuffer(30)); lh.setUint32(0, 0x04034b50, true); lh.setUint16(4, 20, true); lh.setUint16(6, 0x0800, true); lh.setUint16(8, 0, true);
+    lh.setUint16(10, time, true); lh.setUint16(12, date, true); lh.setUint32(14, crc, true); lh.setUint32(18, f.data.length, true); lh.setUint32(22, f.data.length, true); lh.setUint16(26, name.length, true); lh.setUint16(28, 0, true);
+    parts.push(new Uint8Array(lh.buffer), name, f.data);
+    const ch = new DataView(new ArrayBuffer(46)); ch.setUint32(0, 0x02014b50, true); ch.setUint16(4, 20, true); ch.setUint16(6, 20, true); ch.setUint16(8, 0x0800, true); ch.setUint16(10, 0, true);
+    ch.setUint16(12, time, true); ch.setUint16(14, date, true); ch.setUint32(16, crc, true); ch.setUint32(20, f.data.length, true); ch.setUint32(24, f.data.length, true); ch.setUint16(28, name.length, true); ch.setUint32(42, offset, true);
+    central.push(new Uint8Array(ch.buffer), name);
+    offset += 30 + name.length + f.data.length;
+  }
+  const size = central.reduce((n, p) => n + p.length, 0);
+  const end = new DataView(new ArrayBuffer(22)); end.setUint32(0, 0x06054b50, true); end.setUint16(8, files.length, true); end.setUint16(10, files.length, true); end.setUint32(12, size, true); end.setUint32(16, offset, true);
+  return new Blob([...parts, ...central, new Uint8Array(end.buffer)], { type: 'application/zip' });
+}
+
+async function downloadZip() {
+  const files = [];
+  for (const clip of clips) { const rec = done.get(clip.key); if (rec) files.push({ name: `${clip.key}.wav`, data: new Uint8Array(await rec.blob.arrayBuffer()) }); }
+  const url = URL.createObjectURL(makeZip(files));
+  const a = document.createElement('a'); a.href = url; a.download = 'vozes-da-tia.zip'; document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 5000);
+  say(`Baixei ${files.length} gravações em vozes-da-tia.zip. Descompacte em public/voice/clips/ e rode npm run voice:manifest.`, 'ok');
+}
+
+/* ---------- eventos ---------- */
+els.rec.addEventListener('click', () => (recording ? stop() : start()));
+els.play.addEventListener('click', play);
+els.prev.addEventListener('click', () => { if (index > 0) { index--; say(''); render(); } });
+els.next.addEventListener('click', () => { if (index < clips.length - 1) { index++; say(''); render(); } });
+els.zip.addEventListener('click', downloadZip);
+els.erase.addEventListener('click', async () => { if (confirm('Apagar TODAS as gravações guardadas neste navegador?')) { done.clear(); await idb.clear(); say('Gravações apagadas.'); render(); } });
+document.addEventListener('keydown', (e) => { if (e.code === 'Space' && !/^(BUTTON|INPUT|SUMMARY)$/.test(document.activeElement.tagName)) { e.preventDefault(); els.rec.click(); } });
+window.addEventListener('pagehide', () => { cancelAnimationFrame(raf); if (stream) stream.getTracks().forEach((t) => t.stop()); });
+
+/* ---------- início ---------- */
+(async function init() {
+  try {
+    const response = await fetch('gravar-voz/clips.json'); if (!response.ok) throw new Error('lista');
+    const data = await response.json();
+    clips = data.groups.flatMap((g) => g.clips.map((c) => ({ key: c.key, text: c.text, group: g.title })));
+  } catch {
+    els.count.textContent = 'Não consegui carregar a lista de frases.';
+    return say('Abra esta página pelo jogo (http://localhost:4202/gravar-voz.html), com o servidor ligado.', 'error');
+  }
+  db = await idb.open();
+  for (const [key, value] of await idb.all()) if (clips.some((c) => c.key === key) && value && value.blob) done.set(key, value);
+  const firstMissing = clips.findIndex((c) => !done.has(c.key)); index = firstMissing >= 0 ? firstMissing : 0;
+  buildList(); render();
+  if (!db) say('Atenção: o navegador não deixa guardar as gravações. Baixe o .zip antes de fechar a página.', 'error');
+})();
+</script>
+</body>
+</html>
