@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1794322309669,
+  "timestamp": 1794323634798,
   "index": "/jogo-da-memoria-tia-becca/index.html",
   "assetGroups": [
     {
@@ -11,19 +11,19 @@
         "ignoreVary": true
       },
       "urls": [
-        "/jogo-da-memoria-tia-becca/chunk-BmBdZ6q5.js",
-        "/jogo-da-memoria-tia-becca/chunk-C7uYOZb4.js",
-        "/jogo-da-memoria-tia-becca/chunk-CmO4mF0e.js",
-        "/jogo-da-memoria-tia-becca/chunk-DJTYPK2K.js",
-        "/jogo-da-memoria-tia-becca/chunk-DMJWAQpC.js",
-        "/jogo-da-memoria-tia-becca/chunk-DV2FwbF_.js",
-        "/jogo-da-memoria-tia-becca/chunk-DXU_-WSF.js",
+        "/jogo-da-memoria-tia-becca/chunk-CPGJRaxE.js",
+        "/jogo-da-memoria-tia-becca/chunk-ClOWeTS4.js",
+        "/jogo-da-memoria-tia-becca/chunk-D2WMimCi.js",
+        "/jogo-da-memoria-tia-becca/chunk-JoZ2AdiL.js",
+        "/jogo-da-memoria-tia-becca/chunk-bEZNL2qn.js",
+        "/jogo-da-memoria-tia-becca/chunk-hTVpASIG.js",
+        "/jogo-da-memoria-tia-becca/chunk-z6ERLZy9.js",
         "/jogo-da-memoria-tia-becca/icons/apple-touch-icon.png",
         "/jogo-da-memoria-tia-becca/icons/icon-192.png",
         "/jogo-da-memoria-tia-becca/icons/icon-512.png",
         "/jogo-da-memoria-tia-becca/icons/icon-maskable-512.png",
         "/jogo-da-memoria-tia-becca/index.html",
-        "/jogo-da-memoria-tia-becca/main-UJR77VWA.js",
+        "/jogo-da-memoria-tia-becca/main-CBZLH2EB.js",
         "/jogo-da-memoria-tia-becca/manifest.webmanifest",
         "/jogo-da-memoria-tia-becca/media/nunito-cyrillic-ext-wght-normal-MF3U6A5A.woff2",
         "/jogo-da-memoria-tia-becca/media/nunito-cyrillic-wght-normal-KKO5CHEH.woff2",
@@ -227,36 +227,9 @@
         "/jogo-da-memoria-tia-becca/guide/tia-isabella-rebecca.png"
       ],
       "patterns": []
-    },
-    {
-      "name": "voz-da-tia",
-      "installMode": "lazy",
-      "updateMode": "lazy",
-      "cacheQueryOptions": {
-        "ignoreVary": true
-      },
-      "urls": [
-        "/jogo-da-memoria-tia-becca/voice/clips/.gitkeep"
-      ],
-      "patterns": []
     }
   ],
-  "dataGroups": [
-    {
-      "name": "voz-manifesto",
-      "patterns": [
-        "\\/voice\\/manifest\\.json"
-      ],
-      "strategy": "freshness",
-      "maxSize": 1,
-      "maxAge": 86400000,
-      "timeoutMs": 3000,
-      "cacheQueryOptions": {
-        "ignoreVary": true
-      },
-      "version": 1
-    }
-  ],
+  "dataGroups": [],
   "hashTable": {
     "/jogo-da-memoria-tia-becca/cards/aves/aguia.png": "5a42a12ac32bb3a446b2d7ae4427cddd0458c661",
     "/jogo-da-memoria-tia-becca/cards/aves/aguia.webp": "d745d3c62e57dc1995d93923d669fba973ab86e4",
@@ -428,29 +401,28 @@
     "/jogo-da-memoria-tia-becca/cards/selvagens/urso.webp": "f94cfc228f3ee7e029d6a491a3919ee09a27b951",
     "/jogo-da-memoria-tia-becca/cards/selvagens/zebra.png": "cad1422fefb1289282e30d3961f63affd2d43a84",
     "/jogo-da-memoria-tia-becca/cards/selvagens/zebra.webp": "8ec2029e579f4fdfcfdc0803dd144a85b3448069",
-    "/jogo-da-memoria-tia-becca/chunk-BmBdZ6q5.js": "16029aad8039ad8bfae78527b6d2847ed800aeb4",
-    "/jogo-da-memoria-tia-becca/chunk-C7uYOZb4.js": "839274a4d48271b644df966c827032f05991df1a",
-    "/jogo-da-memoria-tia-becca/chunk-CmO4mF0e.js": "f76d92c47d015e17c5174333c984794d55cb043c",
-    "/jogo-da-memoria-tia-becca/chunk-DJTYPK2K.js": "b25643107bd0e426f673279c1056ecb9a3ebf078",
-    "/jogo-da-memoria-tia-becca/chunk-DMJWAQpC.js": "0eca0467dbddb3e81fc0bfdbbc45881280bcff11",
-    "/jogo-da-memoria-tia-becca/chunk-DV2FwbF_.js": "8a469254a37f574fbf559fb10cb94b67ef35dfa7",
-    "/jogo-da-memoria-tia-becca/chunk-DXU_-WSF.js": "7e0844b377f51a806beeaa423a1d67d020f4858e",
+    "/jogo-da-memoria-tia-becca/chunk-CPGJRaxE.js": "8394e10521806f0a5b0a4627aa43d9177aa17a50",
+    "/jogo-da-memoria-tia-becca/chunk-ClOWeTS4.js": "fdd1658efba2a19ab3ea8b3555fc18d5cb3c766e",
+    "/jogo-da-memoria-tia-becca/chunk-D2WMimCi.js": "22e40747469b798081dc834de150c8440c750809",
+    "/jogo-da-memoria-tia-becca/chunk-JoZ2AdiL.js": "da77797944570e3010b6c69ad0d82f8df86005a9",
+    "/jogo-da-memoria-tia-becca/chunk-bEZNL2qn.js": "c1b33a14edbdfd4071677e4e6ea45b0489792cc4",
+    "/jogo-da-memoria-tia-becca/chunk-hTVpASIG.js": "b4ea4168a5fe8fda9471f8d268b8f523fe57e506",
+    "/jogo-da-memoria-tia-becca/chunk-z6ERLZy9.js": "b71452cef36505f260d97a699590e5be82e35142",
     "/jogo-da-memoria-tia-becca/guide/tia-isabella-rebecca.png": "326da8a8f98e6f6463f44ac5b3f5cf0462d45feb",
     "/jogo-da-memoria-tia-becca/guide/tia-isabella-rebecca.webp": "89bbb3d07f18d125fbb38b099c41a4ac425087a4",
     "/jogo-da-memoria-tia-becca/icons/apple-touch-icon.png": "7ba27ade21846c4e5cc72b69c1053e9c13b76e06",
     "/jogo-da-memoria-tia-becca/icons/icon-192.png": "df93489746912baa47a4503df8b52e362800945c",
     "/jogo-da-memoria-tia-becca/icons/icon-512.png": "5a096bae8f6c6351549c18221291fa8a490c0f6f",
     "/jogo-da-memoria-tia-becca/icons/icon-maskable-512.png": "117cd7c5d139398eeb0ecc3d821c6c9ec83597b4",
-    "/jogo-da-memoria-tia-becca/index.html": "d0b0870835208c1364471a957fd118ab3e3bd08d",
-    "/jogo-da-memoria-tia-becca/main-UJR77VWA.js": "80a4ffd82f701fbed79b9d64a5ce07922f726d96",
+    "/jogo-da-memoria-tia-becca/index.html": "4ad2054f700b265e5e5b19e0afc609a2c3ebf867",
+    "/jogo-da-memoria-tia-becca/main-CBZLH2EB.js": "b8a444b77ad82544d0d89e3e272eb62c81010a87",
     "/jogo-da-memoria-tia-becca/manifest.webmanifest": "d0429e31218f17621eedec2e3c2745674cab4765",
     "/jogo-da-memoria-tia-becca/media/nunito-cyrillic-ext-wght-normal-MF3U6A5A.woff2": "d21f43ead3f8a6db44d7f958e624f459b1742060",
     "/jogo-da-memoria-tia-becca/media/nunito-cyrillic-wght-normal-KKO5CHEH.woff2": "c15c26d255937c0b1a47b6d641ee6a2de4392f6b",
     "/jogo-da-memoria-tia-becca/media/nunito-latin-ext-wght-normal-VPKFC542.woff2": "4fcdc09b703c9e26e1b75910a569997aba6ca127",
     "/jogo-da-memoria-tia-becca/media/nunito-latin-wght-normal-LTD77BFG.woff2": "76388dbfe374be06fdc6f9ba38d3f4e479025eeb",
     "/jogo-da-memoria-tia-becca/media/nunito-vietnamese-wght-normal-BXDRYU5N.woff2": "eef899aa52c8e8bf711adc00054d1ba6dec73ee3",
-    "/jogo-da-memoria-tia-becca/styles-EE2JE4UV.css": "ffec03e4cbc731d09ba918bb87f17f226bbd649b",
-    "/jogo-da-memoria-tia-becca/voice/clips/.gitkeep": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+    "/jogo-da-memoria-tia-becca/styles-EE2JE4UV.css": "ffec03e4cbc731d09ba918bb87f17f226bbd649b"
   },
   "navigationUrls": [
     {
